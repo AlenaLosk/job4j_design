@@ -18,6 +18,27 @@ public class MatrixIt implements Iterator<Integer> {
         if (row == data.length) {
             return false;
         }
+        if (column == data[row].length || data[row].length == 0) {
+            column = 0;
+            row++;
+            hasNext();
+        }
+        return row < data.length && column < data[row].length;
+    }
+
+    @Override
+    public Integer next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        return data[row][column++];
+    }
+
+    /*@Override
+    public boolean hasNext() {
+        if (row == data.length) {
+            return false;
+        }
         if (data[row].length != 0) {
             return (row < data.length) || column < data[row].length;
         } else {
@@ -38,5 +59,5 @@ public class MatrixIt implements Iterator<Integer> {
             row++;
             return next();
         }
-    }
+    }*/
 }
