@@ -38,11 +38,19 @@ public class User extends Base {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
-        if (getAge() != user.getAge()) return false;
-        if (!getName().equals(user.getName())) return false;
+        if (getAge() != user.getAge()) {
+            return false;
+        }
+        if (!getName().equals(user.getName())) {
+            return false;
+        }
         return getRole().equals(user.getRole());
     }
 
