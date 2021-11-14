@@ -1,11 +1,12 @@
 package ru.job4j.generics;
 
-public class User {
+public class User extends Base {
     private String name;
     private String role;
     private int age;
 
-    public User(String name, String role, int age) {
+    public User(String id, String name, String role, int age) {
+        super(id);
         this.name = name;
         this.role = role;
         this.age = age;
