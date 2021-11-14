@@ -2,10 +2,10 @@ package ru.job4j.generics;
 
 public class User extends Base {
     private String name;
-    private String role;
+    private Role role;
     private int age;
 
-    public User(String id, String name, String role, int age) {
+    public User(String id, String name, Role role, int age) {
         super(id);
         this.name = name;
         this.role = role;
@@ -20,11 +20,11 @@ public class User extends Base {
         this.name = name;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
