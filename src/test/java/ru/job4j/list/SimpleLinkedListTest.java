@@ -2,6 +2,7 @@ package ru.job4j.list;
 
 import static org.junit.Assert.*;
 import org.hamcrest.core.Is;
+import org.junit.Assert;
 import org.junit.Test;
 import java.util.Iterator;
 import static org.junit.Assert.*;
@@ -15,6 +16,15 @@ public class SimpleLinkedListTest {
         list.add(2);
         assertThat(list.get(0), Is.is(1));
         assertThat(list.get(1), Is.is(2));
+    }
+
+    @Test
+    public void whenAddAndGetSize() {
+        LnList<Integer> list = new SimpleLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(null);
+        Assert.assertEquals(3, list.size());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)

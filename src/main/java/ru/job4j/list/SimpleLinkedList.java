@@ -52,6 +52,11 @@ public class SimpleLinkedList<E> implements LnList<E> {
     }
 
     @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             private int expectedModCount = modCount;
