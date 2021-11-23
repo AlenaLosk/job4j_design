@@ -2,6 +2,8 @@ package ru.job4j.list;
 
 import java.util.*;
 
+import static java.lang.System.arraycopy;
+
 public class SimpleArrayList<T> implements List<T> {
     private T[] container;
     private int size;
@@ -16,14 +18,18 @@ public class SimpleArrayList<T> implements List<T> {
         if (size >= container.length) {
             this.grow();
         }
-        set(size++, value);
+        container[size++] = value;
         modCount++;
     }
 
     private void grow() {
-        T[] tempArray = (T[]) new Object[container.length * 2];
-        System.arraycopy(container, 0, tempArray, 0, container.length);
-        container = tempArray;
+        if (container.length == 0) {
+            container = (T[]) new Object[10];
+        } else {
+            T[] tempArray = (T[]) new Object[container.length * 2];
+            System.arraycopy(container, 0, tempArray, 0, container.length);
+            container = tempArray;
+        }
     }
 
     @Override
@@ -35,16 +41,16 @@ public class SimpleArrayList<T> implements List<T> {
 
     @Override
     public T remove(int index) {
-        T result = get(index);
-        System.arraycopy(container, index + 1, container, index, container.length - index - 1);
-        set(size--, null);
+        T result = container[index];
+        arraycopy(container, index + 1, container, index, container.length - index - 1);
+        container[size--] = null;
         modCount++;
         return result;
     }
 
     @Override
     public T get(int index) {
-        Objects.checkIndex(index, container.length);
+        Objects.checkIndex(index, size);
         return container[index];
     }
 
@@ -67,9 +73,6 @@ public class SimpleArrayList<T> implements List<T> {
             }
             @Override
             public T next() {
-                if (expectedModCount != modCount) {
-                    throw new ConcurrentModificationException();
-                }
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
