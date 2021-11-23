@@ -72,9 +72,6 @@ public class SimpleLinkedList<E> implements LnList<E> {
 
             @Override
             public E next() {
-                if (expectedModCount != modCount) {
-                    throw new ConcurrentModificationException();
-                }
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
