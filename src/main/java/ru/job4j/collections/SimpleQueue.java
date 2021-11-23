@@ -7,7 +7,9 @@ public class SimpleQueue<T> {
     private final SimpleStack<T> out = new SimpleStack<>();
     private int size;
 
-    /*Первый пришел, первый ушел.*/
+    /*
+    Первый пришел, первый ушел.
+    */
 
     public T poll() {
         if (out.isEmpty()) {
