@@ -18,11 +18,8 @@ public class SimpleQueue<T> {
                 out.push(in.pop());
             }
         }
-        T temp = null;
-        if (!out.isEmpty()) {
-            temp = out.pop();
-            size--;
-        }
+        T temp = out.pop();
+        size--;
         return temp;
     }
 

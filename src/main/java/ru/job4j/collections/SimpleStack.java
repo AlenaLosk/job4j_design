@@ -1,7 +1,5 @@
 package ru.job4j.collections;
 
-import ru.job4j.collections.ForwardLinked.*;
-
 public class SimpleStack<T> {
     private ForwardLinked<T> linked = new ForwardLinked<T>();
     private int size;

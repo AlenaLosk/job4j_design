@@ -33,6 +33,11 @@ public class ForwardLinked<T> implements Iterable<T> {
         return (T) tmp.value;
     }
 
+    public boolean revert() {
+        //TODO impl reverts of linked list.
+        return false;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
