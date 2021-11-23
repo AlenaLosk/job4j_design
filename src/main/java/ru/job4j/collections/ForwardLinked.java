@@ -20,16 +20,17 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     public void addFirst(T value) {
-        head = head == null ? new Node<T>(value, null) : new Node<T>(value, head);
+        head = new Node<T>(value, head);
     }
 
     public T deleteFirst() {
         if (head == null) {
             throw new NoSuchElementException();
         }
-        T result = head.value;
-        head = head.next == null ? null : head.next;
-        return result;
+        Node tmp = head;
+        head = head.next;
+        tmp.next = null;
+        return (T) tmp.value;
     }
 
     @Override
