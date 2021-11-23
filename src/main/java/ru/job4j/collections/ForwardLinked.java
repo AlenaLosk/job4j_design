@@ -34,7 +34,7 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     public boolean revert() {
-        //TODO impl reverts of linked list.
+        /*TODO impl reverts of linked list.*/
         return false;
     }
 
