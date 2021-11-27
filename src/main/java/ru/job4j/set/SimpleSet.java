@@ -2,6 +2,7 @@ package ru.job4j.set;
 
 import ru.job4j.list.SimpleArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class SimpleSet<T> implements Set<T> {
 
@@ -22,8 +23,7 @@ public class SimpleSet<T> implements Set<T> {
         boolean result = false;
         if (set.size() != 0) {
             for (T element : set) {
-                if ((element == null && value == null)
-                        || (element != null && value != null && element.equals(value))) {
+                if (Objects.equals(element, value)) {
                     result = true;
                     break;
                 }
